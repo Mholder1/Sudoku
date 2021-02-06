@@ -1,4 +1,3 @@
-
 def find_next_empty(puzzle):
     for r in range(9):
         for c in range(9):
@@ -64,7 +63,7 @@ def solve_sudoku(puzzle):
         #step 6: if none of numbers work, this puzzle is unsolvable
     return False
 
-    
+
 if __name__ == "__main__":
     example_board = [
 
@@ -79,5 +78,23 @@ if __name__ == "__main__":
     [7,-1,3,-1,1,8,-1,-1,-1]
 
 ]
-    print(solve_sudoku(example_board))
-    print(example_board)
+
+def print_board(bo):
+    for row_index in range(len(bo)):
+        if row_index % 3 == 0 and row_index != 0:
+            print("--------------------------------------------")
+        for col_index in range(len(bo[0])):
+            square_value = bo[row_index][col_index]
+            if col_index % 3 == 0 and col_index != 0:
+                print(" | ", end = "")
+            print(f' {str(square_value).rjust(2)} ', end = "")
+            if col_index == 8:
+                print('\n')
+print("\nStarting board\n")        
+print_board(example_board)
+solve_sudoku(example_board)
+print("\nSolved Board\n")
+print_board(example_board)
+
+
+    
