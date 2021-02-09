@@ -1,3 +1,9 @@
+from timeit import default_timer as timer
+
+
+
+start = timer()
+
 def find_next_empty(puzzle):
     for r in range(9):
         for c in range(9):
@@ -90,11 +96,15 @@ def print_board(bo):
             print(f' {str(square_value).rjust(2)} ', end = "")
             if col_index == 8:
                 print('\n')
+
+
 print("\nStarting board\n")        
 print_board(example_board)
 solve_sudoku(example_board)
 print("\nSolved Board\n")
 print_board(example_board)
 
+elapsed_time = timer() - start
 
+print("It took", elapsed_time, "seconds to solve this Sudoku Board.")
     
